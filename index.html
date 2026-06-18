@@ -1,18 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards de Mitos e Verdades</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards de Acessibilidade Web</title>
+  <style>
+    /* Configurações Globais */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* Estrutura do Flashcard */
+    .flashcard {
+      background-color: transparent;
+      width: 320px;
+      height: 380px;
+      perspective: 1000px; /* Efeito 3D */
+    }
+
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    /* Efeito de Virar o Cartão */
+    .flashcard:hover .flashcard-inner,
+    .flashcard:focus-within .flashcard-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Faces do Cartão */
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      box-sizing: border-box;
+    }
+
+    /* Estilo da Frente */
+    .card-front {
+      background-color: #00539c;
+      color: white;
+    }
+
+    .card-front h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      color: #ffd700;
+    }
+
+    .card-front p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    /* Estilo do Verso */
+    .card-back {
+      background-color: #ffffff;
+      color: #333333;
+      transform: rotateY(180deg);
+      border: 2px solid #00539c;
+    }
+
+    .card-back p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Bloco de Código no Verso */
+    code {
+      background-color: #f4f4f4;
+      padding: 8px;
+      border-radius: 6px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      color: #c7254e;
+      border: 1px solid #ddd;
+      width: 100%;
+      word-break: break-all;
+    }
+  </style>
 </head>
 <body>
-    <header>  
-    </header>
 
-    <main>
-    </main>
-
-    <footer>
-    </footer>
-</body>
-</html>
+  <!-- Flashcard 1 -->
+  <div class="flashcard" tabindex="0" aria-label="Flashcard 1: Atributo alt. Use as setas ou tab para interagir.">
+    <div class="flashcard-inner">
+      <div class="card-front">
+        <h2>Acessibilidade #1</h2>
+        <p>Qual é a função do atributo <strong>alt</strong> em uma tag de imagem e por que ele é vital?</p>
+      </div>
+      <div class="card-back">
+        <p>Ele fornece uma descrição textual da imagem para leitores de tela e aparece se o arquivo falhar ao carregar.</p>
+        <code>&lt;img src="foto.jpg" alt="Descrição da foto"&gt;</code>
+      </div>
+    </div>
+  </div>
